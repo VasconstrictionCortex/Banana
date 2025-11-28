@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Banana Bandit Lottery</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.91.8/lib/index.iife.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.91.8/lib/index.iife.min.js"></script>
     <style>
         :root {
             --primary: #9945ff;
@@ -77,16 +76,16 @@
         }
 
         .monkey {
-    width: 120px;
-    height: 120px;
-    background: url('./assets/logo.png') no-repeat center;
-    background-size: cover; /* Ensures the image fills the circle */
-    margin: 0 auto 15px;
-    animation: bounce 3s infinite;
-    border-radius: 50%; /* This makes it circular */
-    overflow: hidden; /* Crops the image to the circle */
-    box-shadow: 0 0 15px rgba(153, 69, 255, 0.7); /* Optional: Add glow */
-}
+            width: 120px;
+            height: 120px;
+            background: url('./assets/logo.png') no-repeat center;
+            background-size: cover;
+            margin: 0 auto 15px;
+            animation: bounce 3s infinite;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(153, 69, 255, 0.7);
+        }
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
@@ -117,7 +116,7 @@
             background: linear-gradient(45deg, transparent, var(--primary), transparent);
             z-index: -1;
             border-radius: 22px;
-            animation: border-glow 3s infinite alternate;
+            animation: border-glow 3s infinite alternate;#42445A
         }
 
         @keyframes border-glow {
@@ -327,8 +326,7 @@
             box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
             transition: all 0.3s ease;
         }
-
-        .buy-btn:hover:not(:disabled) {
+                .buy-btn:hover:not(:disabled) {
             transform: scale(1.03);
             box-shadow: 0 0 30px rgba(255, 0, 85, 0.8);
         }
@@ -463,169 +461,183 @@
             pointer-events: none;
             z-index: 1000;
         }
-/* === ENHANCED POOL & PERK BOXES === */
-/* === POOL BREAKDOWN & EXCLUSIVE PERK BOXES === */
-.pool-perk-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin: 25px 15px;
-}
 
-/* === POOL BREAKDOWN BOX (Keep Original Glowing Style) === */
-.pool-box {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-    font-family: 'Space Grotesk', sans-serif;
-    transition: transform 0.3s ease;
-}
+        .pool-perk-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 25px 15px;
+        }
 
-.pool-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(153, 69, 255, 0.5);
-}
+        .pool-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Space Grotesk', sans-serif;
+            transition: transform 0.3s ease;
+        }
 
-.pool-box::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, transparent, var(--primary), transparent);
-    z-index: -1;
-    border-radius: 22px;
-    animation: border-glow 3s infinite alternate;
-}
+        .pool-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(153, 69, 255, 0.5);
+        }
 
-/* === EXCLUSIVE PERK BOX (Enhanced Pop & Animation) === */
-.perk-box {
-    background: linear-gradient(135deg, rgba(80, 0, 120, 0.6), rgba(255, 0, 255, 0.4));
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 0, 255, 0.3);
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-    font-family: 'Space Grotesk', sans-serif;
-    transition: all 0.4s ease;
-    animation: perk-pulse 2.5s infinite;
-}
+        .pool-box::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, transparent, var(--primary), transparent);
+            z-index: -1;
+            border-radius: 22px;
+            animation: border-glow 3s infinite alternate;
+        }
 
-.perk-box:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 12px 40px rgba(255, 0, 255, 0.6);
-    background: linear-gradient(135deg, rgba(120, 0, 200, 0.7), rgba(255, 0, 255, 0.5));
-}
+        .perk-box {
+            background: linear-gradient(135deg, rgba(80, 0, 120, 0.6), rgba(255, 0, 255, 0.4));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Space Grotesk', sans-serif;
+            transition: all 0.4s ease;
+            animation: perk-pulse 2.5s infinite;
+        }
 
-.perk-box::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, transparent, #ff00ff, #9945ff, transparent);
-    z-index: -1;
-    border-radius: 22px;
-    animation: perk-glow 3s infinite alternate;
-}
+        .perk-box:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(255, 0, 255, 0.6);
+            background: linear-gradient(135deg, rgba(120, 0, 200, 0.7), rgba(255, 0, 255, 0.5));
+        }
 
-/* === SHARED STYLING === */
-.box-title {
-    font-size: 20px;
-    font-weight: 700;
+        .perk-box::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, transparent, #ff00ff, #9945ff, transparent);
+            z-index: -1;
+            border-radius: 22px;
+            animation: perk-glow 3s infinite alternate;
+        }
+
+        .box-title {
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            background: linear-gradient(to right, #ff00ff, #9945ff, #00ffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(153, 69, 255, 0.5);
+            letter-spacing: 0.5px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .pool-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pool-list li {
+            margin-bottom: 16px;
+            font-size: 16px;
+            line-height: 1.5;
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .pool-percent {
+            color: #ffd700;
+            font-weight: 700;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+        }
+
+        .perk-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            text-align: center;
+            position: relative;
+        }
+
+        .perk-text strong {
+            color: #ffd700;
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+        }
+
+        .perk-text span {
+            font-size: 1.2em;
+            margin: 0 4px;
+        }
+
+        @keyframes perk-glow {
+            0% { background-position: -500px; }
+            100% { background-position: 500px; }
+        }
+
+        @keyframes perk-pulse {
+            0% { box-shadow: 0 0 15px rgba(255, 0, 255, 0.3); }
+            50% { box-shadow: 0 0 25px rgba(255, 0, 255, 0.6); }
+            100% { box-shadow: 0 0 15px rgba(255, 0, 255, 0.3); }
+        }
+
+        @media (min-width: 768px) {
+            .pool-perk-container {
+                flex-direction: row;
+                gap: 25px;
+            }
+            
+            .pool-box, .perk-box {
+                flex: 1;
+                min-width: 280px;
+            }
+        }
+        .disclaimer-footer {
     text-align: center;
-    margin-bottom: 16px;
-    background: linear-gradient(to right, #ff00ff, #9945ff, #00ffff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 10px rgba(153, 69, 255, 0.5);
-    letter-spacing: 0.5px;
-    font-family: 'Space Grotesk', sans-serif;
-}
-
-.pool-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.pool-list li {
-    margin-bottom: 16px;
-    font-size: 16px;
-    line-height: 1.5;
-    position: relative;
-    padding-left: 35px;
-}
-
-.pool-percent {
-    color: #ffd700;
-    font-weight: 700;
-    font-size: 20px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
-}
-
-.perk-text {
-    font-size: 16px;
-    line-height: 1.6;
+    margin-top: 30px;
+    padding: 0 15px 15px;
+    font-size: 12px;
     color: var(--text-secondary);
-    text-align: center;
-    position: relative;
 }
 
-.perk-text strong {
-    color: #ffd700;
-    font-weight: 700;
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+.disclaimer-content {
+    background: rgba(20, 10, 40, 0.4);
+    border: 1px solid rgba(153, 69, 255, 0.2);
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: inline-flex;
+    align-items: center;
+    max-width: 90%;
+    line-height: 1.4;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
-.perk-text span {
-    font-size: 1.2em;
-    margin: 0 4px;
-}
-
-/* === ANIMATIONS === */
-@keyframes border-glow {
-    0% { background-position: -500px; }
-    100% { background-position: 500px; }
-}
-
-@keyframes perk-glow {
-    0% { background-position: -500px; }
-    100% { background-position: 500px; }
-}
-
-@keyframes perk-pulse {
-    0% { box-shadow: 0 0 15px rgba(255, 0, 255, 0.3); }
-    50% { box-shadow: 0 0 25px rgba(255, 0, 255, 0.6); }
-    100% { box-shadow: 0 0 15px rgba(255, 0, 255, 0.3); }
-}
-
-/* === RESPONSIVE LAYOUT === */
-@media (min-width: 768px) {
-    .pool-perk-container {
-        flex-direction: row;
-        gap: 25px;
-    }
-    
-    .pool-box, .perk-box {
-        flex: 1;
-        min-width: 280px;
-    }
+.disclaimer-content svg {
+    color: #fbbf24; /* Amber/yellow for warning */
+    flex-shrink: 0;
 }
     </style>
 </head>
@@ -699,7 +711,7 @@
     <div id="discord-section" class="discord-unlock">
         <div class="discord-title">JOIN DISCORD FOR $BANDIT CA & 1000X ALPHA 💜</div>
         <p>Secret token contract address, alpha calls, and exclusive rewards await inside!</p>
-        <a href="https://discord.gg/e7jPwY4Y" target="_blank" class="discord-link">JOIN DISCORD NOW 🌙</a>
+        <a href="https://discord.gg/vgH4hEDhwk" target="_blank" class="discord-link">JOIN DISCORD NOW 🌙</a>
     </div>
 
     <h2 class="history-title">RECENT TRANSACTIONS</h2>
@@ -722,37 +734,29 @@
         </div>
     </div>
 
-    <!-- Pool Breakdown & Perk Boxes -->
-<div class="pool-perk-container">
-    <div class="pool-box glass-card">
-        <h3 class="box-title">POOL BREAKDOWN</h3>
-        <ul class="pool-list">
-            <li><span class="pool-percent">50%</span> Winners: 3 random splits—easy SOL payouts.</li>
-            <li><span class="pool-percent">40%</span>   Influencers: Massive promo to pump prices.</li>
-            <li><span class="pool-percent">10%</span> Devs: Dip-buying fuel for stability.</li>
-        </ul>
+    <div class="pool-perk-container">
+        <div class="pool-box">
+            <h3 class="box-title">POOL BREAKDOWN</h3>
+            <ul class="pool-list">
+                <li><span class="pool-percent">50%</span> Winners: 3 random splits—easy SOL payouts.</li>
+                <li><span class="pool-percent">40%</span>   Influencers: Massive promo to pump prices.</li>
+                <li><span class="pool-percent">10%</span> Devs: Dip-buying fuel for stability.</li>
+            </ul>
+        </div>
+        
+        <div class="perk-box">
+            <h3 class="box-title">EXCLUSIVE PERK</h3>
+            <p class="perk-text">
+                In Discord, you're first to grab the $BANDIT CA and snipe tokens at floor price—before influencers ignite the hype. Low entry, high FOMO. Connect & play now!
+            </p>
+        </div>
     </div>
-    
-    <div class="perk-box glass-card">
-        <h3 class="box-title">EXCLUSIVE PERK</h3>
-        <p class="perk-text">
-            In Discord, you're first to grab the $BANDIT CA and snipe tokens at floor price—before influencers ignite the hype. Low entry, high FOMO. Connect & play now!
-        </p>
-    </div>
-</div>
 
     <script>
-        // ======================
-        // CONFIGURATION
-        // ======================
-        const NETWORK = "testnet"; 
-        // ⚠️ Change to "mainnet-beta" for production
+        const NETWORK = "mainnet-beta";
         const ADMIN_WALLET = "D32NoR8H8m9TGVi4SqLhvv5VbSGHDN4eEL6EPSGrYWwn";
         const CONNECTION = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl(NETWORK), "confirmed");
         
-        // ======================
-        // DOM ELEMENTS
-        // ======================
         const connectBtn = document.getElementById('connect-btn');
         const walletSection = document.getElementById('wallet-section');
         const connectSection = document.getElementById('connect-section');
@@ -766,21 +770,14 @@
         const buyBtn = document.getElementById('buy-btn');
         const confettiCanvas = document.getElementById('confetti-canvas');
         
-        // ======================
-        // STATE
-        // ======================
         let wallet = null;
         let tickets = 1;
         let hasBoughtTicket = localStorage.getItem('banana_bandit_bought') === 'true';
 
-        // Show Discord if already bought
         if (hasBoughtTicket) {
             discordSection.classList.add('show');
         }
 
-        // ======================
-        // UI HELPERS
-        // ======================
         function updateBuyButtonText() {
             const solAmount = (tickets * 0.01).toFixed(2);
             buyBtn.textContent = `BUY ${tickets} TICKETS FOR ${solAmount} SOL 🚀`;
@@ -795,56 +792,51 @@
             errorMsg.style.display = 'block';
         }
 
-        // ======================
-        // WALLET CONNECTION (FIXED FOR MOBILE)
-        // ======================
         async function connectWallet() {
             hideError();
             connectBtn.disabled = true;
             connectBtn.textContent = "CONNECTING...";
 
             try {
-                // ✅ CORRECT WAY TO ACCESS PHANTOM
-                if (!window.phantom?.solana) {
-                    // Deep link to Phantom app
-                    const dappUrl = encodeURIComponent(window.location.href);
-                    const phantomUrl = `https://phantom.app/ul/v1/connect?dapp_encodeth=${dappUrl}`;
-                    window.location.href = phantomUrl;
-                    
-                    // Fallback after 1.5s
+                if (typeof window.solana !== 'undefined' && window.solana.isPhantom) {
+                    const provider = window.solana;
+                    const resp = await provider.connect();
+                    wallet = resp.publicKey;
+
+                    connectSection.style.display = 'none';
+                    walletSection.style.display = 'block';
+
+                    provider.on('disconnect', () => {
+                        wallet = null;
+                        walletSection.style.display = 'none';
+                        connectSection.style.display = 'block';
+                        connectBtn.textContent = "RECONNECT WALLET";
+                        connectBtn.disabled = false;
+                    });
+
+                    connectBtn.textContent = "CONNECTED ✅";
+
+                } else if (/Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent)) {
+                    const dappUrl = window.location.href;
+                    window.location.href = `https://phantom.app/ul/v1/connect?dapp_encodeth=${btoa(dappUrl)}`;
                     setTimeout(() => {
-                        showError("Open this page in Phantom browser");
+                        showError("Open this page in Phantom app");
                         connectBtn.disabled = false;
                         connectBtn.textContent = "CONNECT PHANTOM 🦾";
                     }, 1500);
-                    return;
+                } else {
+                    showError("Please install Phantom wallet");
+                    connectBtn.disabled = false;
+                    connectBtn.textContent = "CONNECT PHANTOM 🦾";
                 }
-
-                const provider = window.phantom.solana;
-                const resp = await provider.connect();
-                wallet = resp.publicKey;
-
-                // Show wallet UI
-                connectSection.style.display = 'none';
-                walletSection.style.display = 'block';
-
-                // Handle disconnect
-                provider.on('disconnect', () => {
-                    wallet = null;
-                    walletSection.style.display = 'none';
-                    connectSection.style.display = 'block';
-                    connectBtn.textContent = "RECONNECT WALLET";
-                });
 
             } catch (err) {
                 console.error("Connection error:", err);
                 let msg = "Connection failed";
-                if (err.message) {
-                    if (err.message.includes("User rejected")) {
-                        msg = "Connection rejected";
-                    } else {
-                        msg = err.message;
-                    }
+                if (err.message?.includes("User rejected")) {
+                    msg = "Connection rejected";
+                } else if (err.message) {
+                    msg = err.message;
                 }
                 showError(msg);
                 connectBtn.disabled = false;
@@ -852,9 +844,6 @@
             }
         }
 
-        // ======================
-        // TRANSACTION LOGIC
-        // ======================
         async function buyTickets() {
             if (!wallet) {
                 showError("Wallet not connected");
@@ -865,7 +854,6 @@
                 buyBtn.disabled = true;
                 buyBtn.textContent = "PROCESSING... 🍌";
 
-                // Build transaction
                 const transaction = new solanaWeb3.Transaction();
                 const { blockhash } = await CONNECTION.getLatestBlockhash();
                 transaction.recentBlockhash = blockhash;
@@ -879,18 +867,15 @@
                 });
                 transaction.add(transferInstruction);
 
-                // Sign & send
-                const provider = window.phantom.solana;
+                const provider = window.solana;
                 const signed = await provider.signTransaction(transaction);
                 const signature = await CONNECTION.sendRawTransaction(signed.serialize());
                 await CONNECTION.confirmTransaction(signature, "confirmed");
 
-                // 🎉 SUCCESS
                 hasBoughtTicket = true;
                 localStorage.setItem('banana_bandit_bought', 'true');
                 discordSection.classList.add('show');
 
-                // Confetti
                 if (confettiCanvas.getContext) {
                     const ctx = confettiCanvas.getContext('2d');
                     const w = window.innerWidth;
@@ -911,7 +896,6 @@
                     }
                 }
 
-                // Update UI
                 document.querySelector('.stat-card:nth-child(3) .stat-value').textContent = tickets;
                 buyBtn.textContent = "SUCCESS! 🥳";
                 setTimeout(() => {
@@ -924,12 +908,10 @@
             } catch (err) {
                 console.error("Transaction error:", err);
                 let msg = "Transaction failed";
-                if (err.message) {
-                    if (err.message.includes("User rejected")) {
-                        msg = "Transaction rejected";
-                    } else {
-                        msg = err.message;
-                    }
+                if (err.message?.includes("User rejected")) {
+                    msg = "Transaction rejected";
+                } else if (err.message) {
+                    msg = err.message;
                 }
                 showError(msg);
                 buyBtn.disabled = false;
@@ -937,9 +919,6 @@
             }
         }
 
-        // ======================
-        // EVENT LISTENERS
-        // ======================
         connectBtn.addEventListener('click', connectWallet);
         retryBtn.addEventListener('click', connectWallet);
         buyBtn.addEventListener('click', buyTickets);
@@ -960,16 +939,17 @@
             }
         });
 
-        // ======================
-        // INIT
-        // ======================
         updateBuyButtonText();
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/eruda@3.0.0"></script>
-<script>eruda.init();</script>
-<script src="solana-web3.js"></script>
+<!-- Professional Disclaimer Footer -->
+<footer class="disclaimer-footer">
+    <div class="disclaimer-content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 6px; opacity: 0.8;">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+        </svg>
+        Tickets are final. No refunds. Check local laws. Participate responsibly.
+    </div>
+</footer>
 </body>
 </html>
-
-
-      
