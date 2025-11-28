@@ -793,56 +793,61 @@
         }
 
         async function connectWallet() {
-            hideError();
-            connectBtn.disabled = true;
-            connectBtn.textContent = "CONNECTING...";
+    hideError();
+    connectBtn.disabled = true;
+    connectBtn.textContent = "CONNECTING...";
 
-            try {
-                if (typeof window.solana !== 'undefined' && window.solana.isPhantom) {
-                    const provider = window.solana;
-                    const resp = await provider.connect();
-                    wallet = resp.publicKey;
-
-                    connectSection.style.display = 'none';
-                    walletSection.style.display = 'block';
-
-                    provider.on('disconnect', () => {
-                        wallet = null;
-                        walletSection.style.display = 'none';
-                        connectSection.style.display = 'block';
-                        connectBtn.textContent = "RECONNECT WALLET";
-                        connectBtn.disabled = false;
-                    });
-
-                    connectBtn.textContent = "CONNECTED ✅";
-
-                } else if (/Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent)) {
-                    const dappUrl = window.location.href;
-                    window.location.href = `https://phantom.app/ul/v1/connect?dapp_encodeth=${btoa(dappUrl)}`;
-                    setTimeout(() => {
-                        showError("Open this page in Phantom app");
-                        connectBtn.disabled = false;
-                        connectBtn.textContent = "CONNECT PHANTOM 🦾";
-                    }, 1500);
-                } else {
-                    showError("Please install Phantom wallet");
-                    connectBtn.disabled = false;
-                    connectBtn.textContent = "CONNECT PHANTOM 🦾";
-                }
-
-            } catch (err) {
-                console.error("Connection error:", err);
-                let msg = "Connection failed";
-                if (err.message?.includes("User rejected")) {
-                    msg = "Connection rejected";
-                } else if (err.message) {
-                    msg = err.message;
-                }
-                showError(msg);
-                connectBtn.disabled = false;
-                connectBtn.textContent = "CONNECT PHANTOM 🦾";
+    try {
+        // ✅ Modern Phantom detection (2024+ standard)
+        if (window.phantom?.solana) {
+            const provider = window.phantom.solana;
+            
+            // Connect if not already connected
+            if (!provider.isConnected) {
+                await provider.connect();
             }
+            
+            wallet = provider.publicKey;
+            connectSection.style.display = 'none';
+            walletSection.style.display = 'block';
+            connectBtn.textContent = "CONNECTED ✅";
+
+            // Handle disconnect
+            provider.on('disconnect', () => {
+                wallet = null;
+                walletSection.style.display = 'none';
+                connectSection.style.display = 'block';
+                connectBtn.textContent = "RECONNECT WALLET";
+                connectBtn.disabled = false;
+            });
+
+        } 
+        // 📱 Mobile deep link fallback (for non-injected environments)
+        else if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+            const dappUrl = encodeURIComponent(window.location.href);
+            // ✅ Correct Phantom deep link format (2024)
+            window.location.href = `https://phantom.app/ul/v1/connect?dapp_url=${dappUrl}&dapp_name=Banana%20Bandit`;
+        } 
+        // 🖥️ Desktop: Phantom not detected
+        else {
+            showError("Phantom wallet not found. Install the browser extension.");
+            connectBtn.disabled = false;
+            connectBtn.textContent = "CONNECT PHANTOM 🦾";
         }
+
+    } catch (err) {
+        console.error("Connection error:", err);
+        let msg = "Connection failed";
+        if (err.message?.includes("User rejected")) {
+            msg = "Connection rejected";
+        } else if (err.message) {
+            msg = err.message;
+        }
+        showError(msg);
+        connectBtn.disabled = false;
+        connectBtn.textContent = "CONNECT PHANTOM 🦾";
+    }
+}
 
         async function buyTickets() {
             if (!wallet) {
@@ -867,7 +872,7 @@
                 });
                 transaction.add(transferInstruction);
 
-                const provider = window.solana;
+                const provider = window.phantom?.solana || window.solana;
                 const signed = await provider.signTransaction(transaction);
                 const signature = await CONNECTION.sendRawTransaction(signed.serialize());
                 await CONNECTION.confirmTransaction(signature, "confirmed");
@@ -940,6 +945,13 @@
         });
 
         updateBuyButtonText();
+        // Auto-detect if already connected (e.g., after page refresh)
+if (window.phantom?.solana?.isConnected) {
+    wallet = window.phantom.solana.publicKey;
+    connectSection.style.display = 'none';
+    walletSection.style.display = 'block';
+    connectBtn.textContent = "CONNECTED ✅";
+}
     </script>
 <!-- Professional Disclaimer Footer -->
 <footer class="disclaimer-footer">
